@@ -23,3 +23,7 @@ const path = require('path')
   }
 
   app.on('ready', createWindow)
+
+  app.on('window-all-closed', function () {
+    app.quit();
+  })
