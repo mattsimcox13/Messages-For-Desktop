@@ -1,7 +1,7 @@
 {
   "name": "messages-for-desktop",
   "productName": "Messages For Desktop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Android messages for desktop",
   "main": "main.js",
   "scripts": {
