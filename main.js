@@ -8,6 +8,12 @@ const {app, BrowserWindow} = require('electron')
     // Hide menu
     win.setMenu(null);
 
+    // Set title
+    win.setTitle('Messages For Desktop'); //during load
+    win.webContents.on('did-finish-load', () => {
+      win.setTitle('Messages For Desktop') //and after
+    })
+
     // and load the index.html of the app.
     win.loadURL('https://messages.android.com/')
   }
