@@ -1,0 +1,14 @@
+{
+  "name": "messages-for-desktop",
+  "version": "1.0.0",
+  "description": "Android messages for desktop",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Matt Simcox",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.4"
+  }
+}
