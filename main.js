@@ -14,6 +14,8 @@ const path = require('path')
     win.webContents.on('did-finish-load', () => {
       win.setTitle('Messages For Desktop') //and after
     })
+
+    // Can use this to push notifications potentially
     win.webContents.on('page-title-updated', () => {
       win.setTitle('Messages For Desktop') //and stay that way
     })
