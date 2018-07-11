@@ -18,6 +18,9 @@ const path = require('path')
     // Can use this to push notifications potentially
     win.webContents.on('page-title-updated', () => {
       win.setTitle('Messages For Desktop') //and stay that way
+
+      // Send notification (hacked in here, hopefully not permanent)
+      
     })
 
     // and load the index.html of the app.
