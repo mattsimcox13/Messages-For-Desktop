@@ -23,15 +23,23 @@ const notifier = require('node-notifier')
       // Send notification (hacked in here, hopefully not permanent)
       notifier.notify({
         title: 'Messages for Desktop',
-        message: 'You have a new message'
+        message: 'You have a new message',
+        icon: path.join(__dirname, 'assets/icon/messenger.png'),
+        wait: true
       });
+
+      notifier.on('click', function(notifierObject, options) {
+        win.show();
+        win.focus();
+      });
+
     })
 
     // and load the index.html of the app.
     win.loadURL('https://messages.android.com/')
   }
 
-  app.on('ready', createWindow)
+app.on('ready', createWindow)
 
   app.on('window-all-closed', function () {
     app.quit();
