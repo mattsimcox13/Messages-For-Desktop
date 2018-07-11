@@ -1,5 +1,6 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const notifier = require('node-notifier')
 
   function createWindow () {
     // Create the browser window.
@@ -20,7 +21,10 @@ const path = require('path')
       win.setTitle('Messages For Desktop') //and stay that way
 
       // Send notification (hacked in here, hopefully not permanent)
-      
+      notifier.notify({
+        title: 'Messages for Desktop',
+        message: 'You have a new message'
+      });
     })
 
     // and load the index.html of the app.
