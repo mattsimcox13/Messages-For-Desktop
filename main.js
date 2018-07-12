@@ -21,6 +21,7 @@ const notifier = require('node-notifier')
       win.setTitle('Messages For Desktop') //and stay that way
 
       // Send notification (hacked in here, hopefully not permanent)
+      // NOTE: If window showing/focused, don't notify. May stop second notif.
       notifier.notify({
         title: 'Messages for Desktop',
         message: 'You have a new message',
