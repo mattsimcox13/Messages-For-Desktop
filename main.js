@@ -23,6 +23,8 @@ const notifier = require('node-notifier')
       // Send notification (hacked in here, hopefully not permanent)
       // TODO: Class "lXNy8e  oLerdd zshGI INJlr" is for text div
       //       Text is in aria-label="" selector in the div
+      //       See: https://stackoverflow.com/questions/285522/find-html-label-associated-with-a-given-input
+      //       See: https://stackoverflow.com/questions/18949817/get-text-in-getelementsbyclassname
       if (!win.isFocused()) {
         notifier.notify({
           title: 'Messages for Desktop',
