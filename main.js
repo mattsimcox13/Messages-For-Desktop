@@ -21,7 +21,9 @@ const notifier = require('node-notifier')
       win.setTitle('Messages For Desktop') //and stay that way
 
       // Send notification (hacked in here, hopefully not permanent)
-      // NOTE: If window showing/focused, don't notify. May stop second notif.
+      // TODO: If window showing/focused, don't notify. May stop second notif.
+      // TODO: Class "lXNy8e  oLerdd zshGI INJlr" is for text div
+      //       Text is in aria-label="" selector in the div
       notifier.notify({
         title: 'Messages for Desktop',
         message: 'You have a new message',
