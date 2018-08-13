@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Tray} = require('electron')
+const {app, BrowserWindow, Tray, Menu} = require('electron')
 const path = require('path')
 const notifier = require('node-notifier')
 const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
@@ -51,6 +51,7 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
 
     // Tray code
     var trayIcon = new Tray(iconpath)
+    var quitting = false // Needed to control quit or hide window
 
     // Tray menu options w/in the context menu
     var trayMenu = Menu.buildFromTemplate([
@@ -61,8 +62,8 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
       },
       {
         label: 'Quit', click: function() {
-          app.isQuiting = true
-          app.quit()
+          quitting = true
+          win.close()
         }
       }
     ])
@@ -71,16 +72,23 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
 
     // Adjusted close/minimize functionality
     win.on('close', function (event) {
-      win = null
+      if (!quitting) {
+        event.preventDefault()
+        win.hide()
+      }
+      else {
+        app.quit()
+      }
     })
 
     win.on('minmimize', function (event) {
       event.preventDefault()
-      win.minimize() // May be win.hide()
+      win.minimize()
     })
 
+    // For macOS specifically
     win.on('show', function () {
-      trayIcon.setHighlightMode('always') // For macOS specifically
+      trayIcon.setHighlightMode('always')
     })
 
   }
