@@ -48,10 +48,41 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
 
     // and load the index.html of the app.
     win.loadURL('https://messages.android.com/')
+
+    // Tray code
+    var trayIcon = new Tray(iconpath)
+
+    // Tray menu options w/in the context menu
+    var trayMenu = Menu.buildFromTemplate([
+      {
+        label: 'Show App', click: function () {
+          win.show()
+        }
+      },
+      {
+        label: 'Quit', click: function() {
+          app.isQuiting = true
+          app.quit()
+        }
+      }
+    ])
+
+    trayIcon.setContextMenu(trayMenu)
+
+    // Adjusted close/minimize functionality
+    win.on('close', function (event) {
+      win = null
+    })
+
+    win.on('minmimize', function (event) {
+      event.preventDefault()
+      win.minimize() // May be win.hide()
+    })
+
+    win.on('show', function () {
+      trayIcon.setHighlightMode('always') // For macOS specifically
+    })
+
   }
 
 app.on('ready', createWindow)
-
-  app.on('window-all-closed', function () {
-    app.quit();
-  })
