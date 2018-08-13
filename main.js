@@ -1,6 +1,7 @@
 const {app, BrowserWindow, Tray} = require('electron')
 const path = require('path')
 const notifier = require('node-notifier')
+const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
 
 // TODO: Minimize/maximize to tray
 //       Tray icon for notifications on/off and quit
@@ -9,7 +10,7 @@ const notifier = require('node-notifier')
   function createWindow () {
     // Create the browser window.
     win = new BrowserWindow({width: 1200, height: 900,
-      icon: path.join(__dirname, 'assets/icon/messenger.png')})
+      icon: iconpath})
 
     // Hide menu
     win.setMenu(null);
