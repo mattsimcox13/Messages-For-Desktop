@@ -1,6 +1,10 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Tray} = require('electron')
 const path = require('path')
 const notifier = require('node-notifier')
+
+// TODO: Minimize/maximize to tray
+//       Tray icon for notifications on/off and quit
+//       Fix icon/app title in notifications (currently snoreToast)
 
   function createWindow () {
     // Create the browser window.
@@ -16,7 +20,7 @@ const notifier = require('node-notifier')
       win.setTitle('Messages For Desktop') //and after
     })
 
-    // Can use this to push notifications potentially
+    // Used to push notifications
     win.webContents.on('page-title-updated', () => {
       win.setTitle('Messages For Desktop') //and stay that way
 
