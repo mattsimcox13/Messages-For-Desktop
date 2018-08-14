@@ -77,10 +77,9 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
         event.preventDefault()
         win.hide()
 
-        // Show notification window when windows x button is clicked
-        // Not entirely working
+        // Show notification window when windows close button is clicked
         const notificationPath = path.join( __dirname, 'src/notificationPop.html')
-        let notWin = new BrowserWindow({ width: 650, height: 250 })
+        let notWin = new BrowserWindow({ width: 650, height: 250, frame: false })
         notWin.setMenu(null);
         notWin.on('close', function () { notWin = null })
         notWin.loadURL(notificationPath)
