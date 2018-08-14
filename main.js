@@ -76,18 +76,18 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
       if (!quitting) {
         event.preventDefault()
         win.hide()
+
+        // Show notification window when windows x button is clicked
+        // Not entirely working
+        const notificationPath = path.join( __dirname, 'src/notificationPop.html')
+        let notWin = new BrowserWindow({ width: 400, height: 200 })
+        notWin.on('close', function () { notWin = null })
+        notWin.loadURL(notificationPath)
+        notWin.show()
       }
       else {
         app.quit()
       }
-
-      // Show notification window when windows x button is clicked
-      // Not entirely working
-      const notificationPath = path.join('file://', __dirname, 'notificationPop.html')
-      let notWin = new BrowserWindow({ width: 400, height: 200 })
-      notWin.on('close', function () { notWin = null })
-      notWin.loadURL(notificationPath)
-      notWin.show()
     })
 
     win.on('minmimize', function (event) {
