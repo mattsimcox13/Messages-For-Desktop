@@ -50,6 +50,7 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
     win.loadURL('https://messages.android.com/')
 
     // Tray code
+    // NOTE: If window is hidden (close button), all notifications will not trigger
     var trayIcon = new Tray(iconpath)
     var quitting = false // Needed to control quit or hide window
 
