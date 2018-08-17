@@ -83,7 +83,8 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
           width: 650,
           height: 250,
           frame: false,
-          alwaysOnTop: true
+          alwaysOnTop: true,
+          parent: win
         })
         notWin.setMenu(null)
         notWin.on('close', function () { notWin = null })
