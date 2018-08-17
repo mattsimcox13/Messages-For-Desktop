@@ -1,4 +1,4 @@
-const {app, BrowserWindow, Tray, Menu} = require('electron')
+const {app, BrowserWindow, Tray, Menu, ipcMain} = require('electron')
 const path = require('path')
 const notifier = require('node-notifier')
 const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
@@ -79,8 +79,13 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
 
         // Show notification window when windows close button is clicked
         const notificationPath = path.join( __dirname, 'src/notificationPop.html')
-        let notWin = new BrowserWindow({ width: 650, height: 250, frame: false })
-        notWin.setMenu(null);
+        let notWin = new BrowserWindow({
+          width: 650,
+          height: 250,
+          frame: false,
+          alwaysOnTop: true
+        })
+        notWin.setMenu(null)
         notWin.on('close', function () { notWin = null })
         notWin.loadURL(notificationPath)
         notWin.show()
