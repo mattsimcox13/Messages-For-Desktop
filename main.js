@@ -93,14 +93,13 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
         notWin.show()
 
         // Communication w/ notification popup renderer process
-        // TODO: Figure out why this only works once...
         ipcMain.on('btnMessage', (event, arg) => {
           if (arg === 'ok') {
-            notWin.close();
+            notWin.hide();
           }
           else if (arg === 'cancel') {
             win.show();
-            notWin.close();
+            notWin.hide();
           }
         })
 
