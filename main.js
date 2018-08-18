@@ -86,10 +86,23 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
           alwaysOnTop: true,
           parent: win
         })
+
         notWin.setMenu(null)
         notWin.on('close', function () { notWin = null })
         notWin.loadURL(notificationPath)
         notWin.show()
+
+        // Communication w/ notification popup renderer process
+        ipcMain.on('btnMessage', (event, arg) => {
+          if (arg === 'ok') {
+            notWin.close();
+          }
+          else if (arg === 'cancel') {
+            win.show();
+            notWin.close();
+          }
+        })
+
       }
       else {
         app.quit()

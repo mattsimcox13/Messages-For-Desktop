@@ -5,3 +5,12 @@
   https://medium.freecodecamp.org/how-to-build-your-first-app-with-electron-41ebdb796930
   https://www.christianengvall.se/ipcmain-and-ipcrenderer/
 */
+const {ipcRenderer} = require('electron')
+
+// DIS SHIT WORKS
+window.onclick = myFunction;
+
+// If the user clicks in the window, set the background color of <body> to yellow
+function myFunction() {
+    document.getElementById("okBtn").style.backgroundColor = "yellow";
+}
