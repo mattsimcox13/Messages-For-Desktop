@@ -93,6 +93,10 @@ const iconpath = path.join(__dirname, 'assets/icon/messenger.png')
         notWin.show()
 
         // Communication w/ notification popup renderer process
+        // TODO: Make this more elagent so that there isn't tons of extra
+        //       renderer processes running (1 per notWin instance)
+        // NOTE: Try factory method, if notWin is null just make a new instance
+        //       Or try and reuse the old instance w/o making new ones w/ hide
         ipcMain.on('btnMessage', (event, arg) => {
           if (arg === 'ok') {
             notWin.hide();
