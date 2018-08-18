@@ -14,3 +14,8 @@ window.onclick = myFunction;
 function myFunction() {
     document.getElementById("okBtn").style.backgroundColor = "yellow";
 }
+
+// Can try the following either in this file or in script tags
+// document.getElementById("about").addEventListener("click", function (e) {
+//    ipcRenderer.send('show-about-window-event');
+// }
