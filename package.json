@@ -11,8 +11,8 @@
   "author": "Matt Simcox",
   "license": "ISC",
   "dependencies": {
-    "electron": "^2.0.4",
-    "electron-packager": "^12.1.0",
+    "electron": "^2.0.8",
+    "electron-packager": "^12.1.1",
     "node-notifier": "^5.2.1"
   }
 }
